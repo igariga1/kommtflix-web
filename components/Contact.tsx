@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
@@ -8,25 +7,46 @@ const Contact: React.FC = () => {
     company: '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
+    // Your provided Access Key from Web3Forms
+    const accessKey = '97a5509f-4e7b-4ad2-abfd-03379585d878'; 
+
+    const payload = {
+      ...formState,
+      access_key: accessKey,
+      subject: `New Inquiry: ${formState.name} (via KommtFlix Website)`,
+      from_name: "KommtFlix Web Portal",
+    };
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1800));
-      setStatus('success');
-      
-      // Reset form after success message duration
-      setTimeout(() => {
-        setStatus('idle');
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
         setFormState({ name: '', email: '', company: '', message: '' });
-      }, 6000);
+        // Reset to idle after 6 seconds
+        setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        console.error("Web3Forms Error:", result);
+        setStatus('error');
+      }
     } catch (error) {
       console.error("Submission failed", error);
-      setStatus('idle');
+      setStatus('error');
     }
   };
 
@@ -62,7 +82,7 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-1 uppercase text-[10px] tracking-widest">Direct Line</h4>
-              <p className="text-gray-500 font-medium">+49 (0) 1777 480 620 </p>
+              <p className="text-gray-500 font-medium">+49 (0) 211 540 80 00</p>
             </div>
           </div>
 
@@ -92,9 +112,25 @@ const Contact: React.FC = () => {
             <div className="space-y-2">
               <p className="text-gray-500 font-medium px-4">Our operations desk in <span className="text-red-600">Düsseldorf</span> will contact you within 8 hours.</p>
               <div className="inline-block mt-4 px-3 py-1 bg-gray-50 rounded-full border border-gray-100">
-                <p className="text-[10px] text-gray-400 font-mono uppercase tracking-widest">Ref: HUB-{Math.floor(Math.random() * 90000) + 10000}</p>
+                <p className="text-[10px] text-gray-400 font-mono uppercase tracking-widest">Securely Transmitted</p>
               </div>
             </div>
+          </div>
+        ) : status === 'error' ? (
+          <div className="h-full flex flex-col items-center justify-center text-center py-20 space-y-6">
+             <div className="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center shadow-lg shadow-red-100">
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <h4 className="text-3xl font-black text-gray-900 leading-tight">Transmission Failed</h4>
+            <p className="text-gray-500 font-medium">We encountered a network error. Please check your connection or try again.</p>
+            <button 
+              onClick={() => setStatus('idle')}
+              className="text-red-600 font-black text-[10px] uppercase tracking-widest border border-red-100 px-6 py-3 rounded-xl hover:bg-red-50 transition-all"
+            >
+              Retry Submission
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -105,6 +141,7 @@ const Contact: React.FC = () => {
                   required
                   disabled={status === 'sending'}
                   type="text" 
+                  name="name"
                   value={formState.name}
                   onChange={(e) => setFormState({...formState, name: e.target.value})}
                   className="w-full bg-gray-50 border-transparent border focus:border-red-500 rounded-2xl px-6 py-4 focus:ring-4 focus:ring-red-500/5 transition-all outline-none"
@@ -117,6 +154,7 @@ const Contact: React.FC = () => {
                   required
                   disabled={status === 'sending'}
                   type="email" 
+                  name="email"
                   value={formState.email}
                   onChange={(e) => setFormState({...formState, email: e.target.value})}
                   className="w-full bg-gray-50 border-transparent border focus:border-red-500 rounded-2xl px-6 py-4 focus:ring-4 focus:ring-red-500/5 transition-all outline-none"
@@ -128,6 +166,7 @@ const Contact: React.FC = () => {
               <label className="text-[10px] font-black text-gray-900 uppercase tracking-widest px-1">Company Name</label>
               <input 
                 type="text" 
+                name="company"
                 disabled={status === 'sending'}
                 value={formState.company}
                 onChange={(e) => setFormState({...formState, company: e.target.value})}
@@ -140,6 +179,7 @@ const Contact: React.FC = () => {
               <textarea 
                 rows={4}
                 required
+                name="message"
                 disabled={status === 'sending'}
                 value={formState.message}
                 onChange={(e) => setFormState({...formState, message: e.target.value})}
