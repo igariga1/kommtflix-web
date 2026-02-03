@@ -93,7 +93,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenImprint }) => {
             <h4 className="text-[9px] font-black uppercase tracking-[0.3em] text-red-600 mb-5">Connect</h4>
             <div className="space-y-3 text-gray-400 text-[10px] font-bold uppercase tracking-wider">
               <p className="leading-tight">Königsallee 19, 40212<br/>Düsseldorf, Germany</p>
-              <p className="text-white">+49 (0) 211 540 80 00</p>
+              <p className="text-white">+49 (0) 1777 4806 20</p>
               <p className="text-red-600 italic lowercase tracking-tight">info@kommtflix.de</p>
             </div>
           </div>
