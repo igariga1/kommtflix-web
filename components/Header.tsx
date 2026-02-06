@@ -192,7 +192,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
                 onClick={() => { setIsMobileMenuOpen(false); onOpenQuote(); }}
                 className="w-full bg-red-600 text-white py-6 rounded-2xl font-black text-lg shadow-2xl shadow-red-100"
               >
-                CONSULT AN EXPERT
+                Contat Us
               </button>
               <div className="flex flex-col items-center space-y-4">
                  <button 
