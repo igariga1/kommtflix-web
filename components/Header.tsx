@@ -147,8 +147,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
                 onClick={onOpenQuote}
                 className="bg-gray-950 text-white px-8 py-4 rounded-xl font-black text-[10px] tracking-[0.2em] hover:bg-red-600 transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-gray-200"
               >
-                Contact Us
+                CONTACT US
               </button>
+            
             </div>
           </nav>
 
@@ -192,7 +193,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
                 onClick={() => { setIsMobileMenuOpen(false); onOpenQuote(); }}
                 className="w-full bg-red-600 text-white py-6 rounded-2xl font-black text-lg shadow-2xl shadow-red-100"
               >
-                Contat Us
+                CONTACT US
               </button>
               <div className="flex flex-col items-center space-y-4">
                  <button 
