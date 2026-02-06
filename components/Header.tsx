@@ -147,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
                 onClick={onOpenQuote}
                 className="bg-gray-950 text-white px-8 py-4 rounded-xl font-black text-[10px] tracking-[0.2em] hover:bg-red-600 transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-gray-200"
               >
-                CONSULT AN EXPERT
+                Contact Us
               </button>
             </div>
           </nav>
