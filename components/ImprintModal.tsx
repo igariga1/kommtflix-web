@@ -71,11 +71,11 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Register Number</p>
-                <p className="text-sm font-medium text-gray-700 leading-relaxed">HRB 182943 (Example)</p>
+                <p className="text-sm font-medium text-gray-700 leading-relaxed"> HRB 111876 </p>
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">VAT ID Number</p>
-                <p className="text-sm font-medium text-gray-700 leading-relaxed">DE 987 654 321 (Acc. to § 27 a UStG)</p>
+                <p className="text-sm font-medium text-gray-700 leading-relaxed"> DE 00 </p>
               </div>
             </div>
           </section>
