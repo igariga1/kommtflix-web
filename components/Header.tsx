@@ -1,14 +1,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { scrollToElement } from '../utils/scroll';
 
 interface HeaderProps {
   onOpenQuote: () => void;
+  onOpenPortal: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
+const Header: React.FC<HeaderProps> = ({ onOpenQuote, onOpenPortal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const isManualScrolling = useRef(false);
   const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -60,19 +61,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
     isManualScrolling.current = true;
     setActiveSection(href);
 
-    const element = document.getElementById(href);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    scrollToElement(href);
 
     if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     scrollTimeout.current = setTimeout(() => {
@@ -80,16 +69,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
     }, 1000);
 
     setIsMobileMenuOpen(false);
-  };
-
-  const openPortalModal = () => setIsPortalModalOpen(true);
-  const closePortalModal = () => setIsPortalModalOpen(false);
-
-  const handleRequestAccess = () => {
-    closePortalModal();
-    setTimeout(() => {
-      onOpenQuote();
-    }, 150);
   };
 
   return (
@@ -136,20 +115,13 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
               </a>
             ))}
             
-            <div className="flex items-center pl-8 space-x-5">
+            <div className="flex items-center pl-8">
               <button 
-                className="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-red-600 transition-colors"
-                onClick={openPortalModal}
+                className="px-8 py-3 bg-red-600 text-white rounded-xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-gray-900 transition-all shadow-xl shadow-red-900/10 active:scale-95"
+                onClick={onOpenPortal}
               >
-                Portal
+                Marketplace
               </button>
-              <button 
-                onClick={onOpenQuote}
-                className="bg-gray-950 text-white px-8 py-4 rounded-xl font-black text-[10px] tracking-[0.2em] hover:bg-red-600 transition-all transform hover:scale-105 active:scale-95 shadow-2xl shadow-gray-200"
-              >
-                CONTACT US
-              </button>
-            
             </div>
           </nav>
 
@@ -190,81 +162,18 @@ const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
             ))}
             <div className="pt-12 border-t border-gray-100 space-y-8">
               <button 
-                onClick={() => { setIsMobileMenuOpen(false); onOpenQuote(); }}
+                onClick={() => { setIsMobileMenuOpen(false); onOpenPortal(); }}
                 className="w-full bg-red-600 text-white py-6 rounded-2xl font-black text-lg shadow-2xl shadow-red-100"
               >
-                CONTACT US
+                ENTER PORTAL
               </button>
               <div className="flex flex-col items-center space-y-4">
-                 <button 
-                  onClick={() => { setIsMobileMenuOpen(false); openPortalModal(); }}
-                  className="text-gray-400 font-black text-xs uppercase tracking-[0.2em]"
-                >
-                  Client Portal
-                </button>
                 <p className="text-[10px] text-gray-300 font-black uppercase tracking-widest">HQ: Düsseldorf, Germany</p>
               </div>
             </div>
           </div>
         </div>
       </header>
-
-      {/* PORTAL MODAL */}
-      {isPortalModalOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-6">
-          <div 
-            className="absolute inset-0 bg-gray-950/90 backdrop-blur-2xl animate-fadeIn" 
-            onClick={closePortalModal}
-          ></div>
-          
-          <div className="relative w-full max-w-lg bg-gray-900 rounded-[40px] shadow-2xl p-10 md:p-14 text-center border border-gray-800 overflow-hidden animate-fadeInScale">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-600/10 blur-3xl rounded-full"></div>
-            
-            <div className="relative z-10">
-              <div className="flex justify-center mb-8">
-                <div className="px-5 py-1.5 bg-red-600/10 border border-red-600/20 rounded-full">
-                  <span className="text-red-600 text-[10px] font-black uppercase tracking-[0.3em]">Private Beta</span>
-                </div>
-              </div>
-              
-              <h3 className="text-3xl font-black text-white mb-6 leading-tight tracking-tight">
-                Integrated Corridor <br />
-                <span className="text-red-600 italic">Dashboard</span>
-              </h3>
-              
-              <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-xs mx-auto font-medium">
-                Our digital infrastructure is currently in exclusive private beta for enterprise partners. Request early access below.
-              </p>
-              
-              <div className="space-y-4">
-                <button 
-                  onClick={handleRequestAccess}
-                  className="w-full bg-red-600 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-900/40 active:scale-95"
-                >
-                  Request Early Access
-                </button>
-                <button 
-                  onClick={closePortalModal}
-                  className="w-full bg-transparent text-gray-500 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:text-white transition-all"
-                >
-                  Back to Hub
-                </button>
-              </div>
-            </div>
-
-            <div className="absolute bottom-6 right-8 text-white/5 font-black text-8xl select-none pointer-events-none italic">
-              BETA
-            </div>
-          </div>
-        </div>
-      )}
-
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
-        .animate-fadeInScale { animation: fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-      `}</style>
     </>
   );
 };

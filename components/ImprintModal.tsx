@@ -54,7 +54,7 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact</p>
                 <p className="text-sm font-medium text-gray-700 leading-relaxed">
-                  +49 (0) 177 748 06 20<br/>
+                  +49 (0) 1777 4806 20<br/>
                   legal@kommtflix.de
                 </p>
               </div>
@@ -71,11 +71,11 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Register Number</p>
-                <p className="text-sm font-medium text-gray-700 leading-relaxed"> HRB 111876 </p>
+                <p className="text-sm font-medium text-gray-700 leading-relaxed">HRB 182943 (Example)</p>
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">VAT ID Number</p>
-                <p className="text-sm font-medium text-gray-700 leading-relaxed"> DE 00 </p>
+                <p className="text-sm font-medium text-gray-700 leading-relaxed">DE 987 654 321 (Acc. to § 27 a UStG)</p>
               </div>
             </div>
           </section>
@@ -101,16 +101,6 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
-        .animate-fadeInScale { animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 10px; }
-      `}</style>
     </div>
   );
 };

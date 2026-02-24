@@ -3,9 +3,10 @@ import React from 'react';
 
 interface HeroProps {
   onOpenQuote: () => void;
+  onOpenPortal: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
+const Hero: React.FC<HeroProps> = ({ onOpenQuote, onOpenPortal }) => {
   const scrollToJourney = () => {
     const element = document.getElementById('journey');
     if (element) {
@@ -40,24 +41,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
           </div>
           
           <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
-            KommtFlix is the SME gateway for sourcing, procurement, and logistics between Europe and Africa. Bridging markets with quality service and precision.
+            KommtFlix is the SME gateway for sourcing and procurement between Europe and Africa. Bridging markets with quality service and precision.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button 
-              onClick={onOpenQuote}
-              className="w-full sm:w-auto sm:min-w-[220px] h-16 bg-red-600 text-white rounded-2xl font-black text-lg hover:bg-red-700 transition-all flex items-center justify-center shadow-2xl shadow-red-200 active:scale-95 hover:-translate-y-1"
-            >
-              Start Your Journey
-            </button>
-            <button 
-              onClick={scrollToJourney}
-              className="w-full sm:w-auto sm:min-w-[220px] h-16 bg-gray-900 text-white border-2 border-transparent rounded-2xl font-black text-lg hover:bg-black transition-all flex items-center justify-center active:scale-95 hover:-translate-y-1 shadow-xl shadow-gray-200"
-            >
-              Our Process
-            </button>
-          </div>
-
           {/* Centered Stats Section */}
           <div className="flex flex-row items-stretch justify-center pt-16 border-t border-gray-50 max-w-2xl mx-auto">
             <div className="flex-1 text-center px-4">
@@ -68,24 +54,17 @@ const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
             <div className="w-px bg-gray-100 self-center h-12"></div>
             
             <div className="flex-1 text-center px-4 relative">
-              <p className="text-4xl font-black text-gray-900 tracking-tight">8h</p>
+              <p className="text-4xl font-black text-gray-900 tracking-tight">08h</p>
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-2">Response Time</p>
             </div>
             
             <div className="w-px bg-gray-100 self-center h-12"></div>
             
             <div className="flex-1 text-center px-4">
-              <p className="text-4xl font-black text-gray-900 tracking-tight">0%</p>
+              <p className="text-4xl font-black text-gray-900 tracking-tight">00%</p>
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-2">Export VAT Policy</p>
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-30">
-        <div className="w-0.5 h-10 bg-gray-400 rounded-full overflow-hidden">
-          <div className="w-full h-1/2 bg-red-600 animate-slide-infinite"></div>
         </div>
       </div>
     </div>

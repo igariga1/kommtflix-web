@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
@@ -82,7 +83,7 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-1 uppercase text-[10px] tracking-widest">Direct Line</h4>
-              <p className="text-gray-500 font-medium">+49 (0) 1777 480 620</p>
+              <p className="text-gray-500 font-medium">+49 (0) 1777 4806 20</p>
             </div>
           </div>
 
@@ -198,7 +199,7 @@ const Contact: React.FC = () => {
                   <span>TRANSMITTING...</span>
                 </>
               ) : (
-                <span>CONSULT AN EXPERT</span>
+                <span>SUBMIT</span>
               )}
             </button>
             <p className="text-[9px] text-center text-gray-400 font-bold uppercase tracking-[0.2em]">

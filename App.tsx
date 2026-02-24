@@ -9,36 +9,79 @@ import Footer from './components/Footer';
 import CorridorJourney from './components/CorridorJourney';
 import KnowledgeHub from './components/KnowledgeHub';
 import ImprintModal from './components/ImprintModal';
+import MarketplacePortal from './components/MarketplacePortal';
+import { scrollToElement } from './utils/scroll';
 
 const App: React.FC = () => {
   const [isImprintOpen, setIsImprintOpen] = useState(false);
-
-  const handleScrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const [isPortalOpen, setIsPortalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white bg-pattern">
-      <Header onOpenQuote={handleScrollToContact} />
+      <Header 
+        onOpenQuote={() => scrollToElement('contact')} 
+        onOpenPortal={() => setIsPortalOpen(true)}
+      />
       <main>
         <div id="hero">
-          <Hero onOpenQuote={handleScrollToContact} />
+          <Hero 
+            onOpenQuote={() => scrollToElement('contact')} 
+            onOpenPortal={() => setIsPortalOpen(true)}
+          />
         </div>
         
         <section id="services" className="py-24">
           <Services />
+        </section>
+
+        <section id="portal-preview" className="py-32 bg-white border-t border-gray-50 overflow-hidden relative">
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center space-y-12">
+              <div className="space-y-6">
+                <h2 className="text-red-600 font-bold tracking-[0.3em] uppercase text-xs">Digital Infrastructure</h2>
+                <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight tracking-tighter">
+                  The <span className="text-red-600">KommtFlix</span> <br />
+                  Marketplace Portal
+                </h3>
+                <p className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+                  Our proprietary platform connects vetted European and African enterprises. Verified assets, global logistics, and seamless trade execution.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-3xl mx-auto">
+                <div className="space-y-4 flex flex-col items-center">
+                  <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center shadow-xl shadow-red-100 mx-auto">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-black text-xl text-gray-900">Vetted Assets</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">Every listing is physically inspected and verified by our team to ensure premium quality.</p>
+                </div>
+                <div className="space-y-4 flex flex-col items-center">
+                  <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center shadow-xl shadow-gray-100 mx-auto">
+                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 012.5 2.5v.5m-1.5 5.5a9 9 0 10-14.5-10.5" />
+                    </svg>
+                  </div>
+                  <h4 className="font-black text-xl text-gray-900">Global Logistics</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">End-to-end supply chain management across the Europe-Africa trade corridor.</p>
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <button 
+                  onClick={() => setIsPortalOpen(true)}
+                  className="bg-gray-900 text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-red-600 transition-all shadow-2xl shadow-gray-200 flex items-center mx-auto group"
+                >
+                  Enter Marketplace
+                  <svg className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="journey" className="bg-gray-50 border-y border-gray-100">
@@ -61,7 +104,7 @@ const App: React.FC = () => {
                 </p>
                 <div className="flex mb-8">
                   <button 
-                    onClick={handleScrollToContact}
+                    onClick={() => scrollToElement('contact')}
                     className="text-[11px] font-black text-red-600 uppercase tracking-[0.2em] flex items-center group"
                   >
                     Consult an Expert
@@ -142,6 +185,7 @@ const App: React.FC = () => {
       </main>
       <Footer onOpenImprint={() => setIsImprintOpen(true)} />
       <ImprintModal isOpen={isImprintOpen} onClose={() => setIsImprintOpen(false)} />
+      {isPortalOpen && <MarketplacePortal onClose={() => setIsPortalOpen(false)} />}
     </div>
   );
 };
