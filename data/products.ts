@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
     location: 'Düsseldorf, DE',
     specs: ['2019 Model', '450,000 km', 'Euro 6', 'Automatic'],
     images: [
-      'https://picsum.photos/seed/truck1/800/600',
+      'https://github.com/igariga1/kommtflix-web/blob/main/images/Oats/oat1.jpeg',
       'https://picsum.photos/seed/truck1_side/800/600',
       'https://picsum.photos/seed/truck1_interior/800/600',
       'https://picsum.photos/seed/truck1_label/800/600'
