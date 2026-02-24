@@ -2,7 +2,7 @@
 import { Product } from '../types';
 
 export const PRODUCTS: Product[] = [
-  {
+  /*{
     id: '1',
     name: 'Mercedes-Benz Actros 1845',
     category: 'Vehicles',
@@ -65,35 +65,33 @@ export const PRODUCTS: Product[] = [
     ],
     status: 'Available',
     vetted: true
-  },
+  },*/
   {
     id: '5',
-    name: 'BMW X5 xDrive40d',
+    name: 'BMW 318 ',
     category: 'Vehicles',
-    price: 55000,
+    price: €11.000,
     location: 'Düsseldorf, DE',
-    specs: ['2022 Model', '15,000 km', 'M-Sport', 'Full Service History'],
+    specs: ['2018 Model', '110,562 km', 'Accident', 'Full Service History'],
     images: [
-      'https://picsum.photos/seed/car1/800/600',
-      'https://picsum.photos/seed/car1_side/800/600',
-      'https://picsum.photos/seed/car1_interior/800/600',
-      'https://picsum.photos/seed/car1_label/800/600'
+      'images/cars/bm1.webp',
+      'images/cars/bm2.webp',
+      'images/cars/bm4.webp',
+      'images/cars/bm3.webp'
     ],
     status: 'Available',
     vetted: true
   },
   {
     id: '6',
-    name: 'Concrete Batching Plant 60m³/h',
-    category: 'Machinery',
-    price: 89000,
-    location: 'Berlin, DE',
-    specs: ['Refurbished', 'Mobile Unit', 'Full Automation', 'Ready for Export'],
+    name: 'Organic Oat Flour',
+    category: 'Agro-Exports',
+    price: €4/kg,
+    location: 'Kano, NG',
+    specs: ['Organic Certified', 'Ready For Export', 'Natural Color', 'Bulk Packaging'],
     images: [
-      'https://picsum.photos/seed/plant/800/600',
-      'https://picsum.photos/seed/plant_side/800/600',
-      'https://picsum.photos/seed/plant_mixer/800/600',
-      'https://picsum.photos/seed/plant_label/800/600'
+      'images/Oats/oat1.jpeg',
+      'images/Oats/oat2.jpeg
     ],
     status: 'Available',
     vetted: true
@@ -102,14 +100,12 @@ export const PRODUCTS: Product[] = [
     id: '8',
     name: 'Dried Hibiscus Flower (Grade A)',
     category: 'Agro-Exports',
-    price: 1850,
+    price: €3/kg,
     location: 'Kano, Nigeria',
     origin: 'Nigeria',
     specs: ['Organic Certified', 'Moisture < 10%', 'Deep Red Color', 'Bulk Packaging'],
     images: [
-      'https://picsum.photos/seed/hibiscus/800/600',
-      'https://picsum.photos/seed/hibiscus_bag/800/600',
-      'https://picsum.photos/seed/hibiscus_close/800/600',
+    
       'https://picsum.photos/seed/hibiscus_label/800/600'
     ],
     status: 'Available',
@@ -117,51 +113,42 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '9',
-    name: 'Premium Plantain Flour',
+    name: 'Dried Bell Pepper',
     category: 'Agro-Exports',
-    price: 1200,
-    location: 'Lagos, Nigeria',
+    price: €12/kg,
+    location: 'Enugu, Nigeria',
     origin: 'Nigeria',
     specs: ['100% Natural', 'Gluten Free', 'Bulk 25kg Bags', 'Export Quality'],
     images: [
-      'https://picsum.photos/seed/flour/800/600',
-      'https://picsum.photos/seed/flour_pack/800/600',
-      'https://picsum.photos/seed/flour_process/800/600',
-      'https://picsum.photos/seed/flour_label/800/600'
+      'images/pepper/driedpeper.jpeg'
     ],
     status: 'Available',
     vetted: true
   },
   {
     id: '10',
-    name: 'Fresh Bird Eye Chilli',
+    name: 'Corn Soy Flour',
     category: 'Agro-Exports',
-    price: 3500,
-    location: 'Accra, Ghana',
+    price: €3/kg,
+    location: 'Benue, Ghana',
     origin: 'Ghana',
-    specs: ['Air Freight Ready', 'GlobalGAP Certified', 'High Scoville', 'Cold Chain Managed'],
+    specs: ['Air/Cargo Freight Ready', 'Phytosanitary Certified', '100% Organic', 'Sutainable'],
     images: [
-      'https://picsum.photos/seed/chilli/800/600',
-      'https://picsum.photos/seed/chilli_side/800/600',
-      'https://picsum.photos/seed/chilli_pack/800/600',
-      'https://picsum.photos/seed/chilli_label/800/600'
+      'images/corn/corn1.jpeg'
     ],
     status: 'Available',
     vetted: true
   },
   {
     id: '11',
-    name: 'Brown Honey Beans (Oloyin)',
+    name: 'Yam Flour',
     category: 'Agro-Exports',
-    price: 950,
-    location: 'Lagos, Nigeria',
+    price: €3/kg,
+    location: 'Accra, Ghana',
     origin: 'Nigeria',
     specs: ['Sorted & Cleaned', 'Pest Free', 'High Protein', '20ft Container Ready'],
     images: [
-      'https://picsum.photos/seed/beans/800/600',
-      'https://picsum.photos/seed/beans_bag/800/600',
-      'https://picsum.photos/seed/beans_close/800/600',
-      'https://picsum.photos/seed/beans_label/800/600'
+      'images/yam/yam 2.jpeg'
     ],
     status: 'Available',
     vetted: true
