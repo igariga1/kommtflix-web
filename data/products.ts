@@ -11,7 +11,7 @@ export const PRODUCTS: Product[] = [
     specs: ['2019 Model', '450,000 km', 'Euro 6', 'Automatic'],
     images: [
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/Oats/oat1.jpeg',
-      '/images/Oats/oat2.jpeg',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/Oats/oat2.jpeg',
       'https://picsum.photos/seed/truck1_interior/800/600',
       'https://picsum.photos/seed/truck1_label/800/600'
     ],
