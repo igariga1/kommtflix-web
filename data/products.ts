@@ -4,26 +4,25 @@ import { Product } from '../types';
 export const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Mercedes-Benz Actros 1845',
-    category: 'Vehicles',
-    price: 48500,
-    location: 'Düsseldorf, DE',
-    specs: ['2019 Model', '450,000 km', 'Euro 6', 'Automatic'],
+    name: 'Oat Flower',
+    category: 'Agro Export',
+    price: €3.2/kg,
+    location: 'Ogun, NG',
+    origin: 'Nigeria',
+    specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/Oats/oat1.jpeg',
-      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/Oats/oat2.jpeg',
-      'https://picsum.photos/seed/truck1_interior/800/600',
-      'https://picsum.photos/seed/truck1_label/800/600'
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/Oats/oat2.jpeg' 
     ],
     status: 'Available',
     vetted: true
   },
-  {
+  /*{
     id: '2',
-    name: 'Caterpillar 320 GC Excavator',
-    category: 'Machinery',
+    name: 'BMW iX5',
+    category: 'Car',
     price: 125000,
-    location: 'Berlin, DE',
+    location: 'Düsseldorf, DE',
     specs: ['2021 Model', '1,200 Hours', 'Tier 4 Final', '20t Class'],
     images: [
       'https://picsum.photos/seed/excavator/800/600',
@@ -148,21 +147,17 @@ export const PRODUCTS: Product[] = [
     ],
     status: 'Available',
     vetted: true
-  },
+  },*/
   {
     id: '11',
-    name: 'Organic Oat Flour',
+    name: 'Ogranic Dried Pepper',
     category: 'Agro-Exports',
     price: 950,
-    location: 'Lagos, Nigeria',
+    location: 'Enugu, NG',
     origin: 'Nigeria',
-    specs: ['Sorted & Cleaned', 'Pest Free', 'High Protein', '20ft Container Ready'],
+    specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
     images: [
-      'images/Oats/oat1.jpeg',
-      'https://github.com/igariga1/kommtflix-web/blob/ae50e7bc960bc5cfb8016613b4d4e1abf256c82b/images/Oats/oat1.jpeg',
-      'https://picsum.photos/seed/beans_bag/800/600',
-      'https://picsum.photos/seed/beans_close/800/600',
-      'https://picsum.photos/seed/beans_label/800/600'
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/pepper/driedpeper.jpeg',
     ],
     status: 'Available',
     vetted: true
