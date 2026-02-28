@@ -159,7 +159,7 @@ export const PRODUCTS: Product[] = [
     specs: ['Sorted & Cleaned', 'Pest Free', 'High Protein', '20ft Container Ready'],
     images: [
       'images/Oats/oat1.jpeg',
-      'https://github.com/igariga1/kommtflix-web/blob/ae50e7bc960bc5cfb8016613b4d4e1abf256c82b/images/Oats/oat1.jpeg'
+      'https://github.com/igariga1/kommtflix-web/blob/ae50e7bc960bc5cfb8016613b4d4e1abf256c82b/images/Oats/oat1.jpeg',
       'https://picsum.photos/seed/beans_bag/800/600',
       'https://picsum.photos/seed/beans_close/800/600',
       'https://picsum.photos/seed/beans_label/800/600'
