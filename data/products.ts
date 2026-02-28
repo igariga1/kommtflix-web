@@ -5,7 +5,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'Oat Flower',
-    category: 'Agro Export',
+    category: 'Agro-Exports',
     price: €3.2/kg,
     location: 'Ogun, NG',
     origin: 'Nigeria',
@@ -157,7 +157,7 @@ export const PRODUCTS: Product[] = [
     origin: 'Nigeria',
     specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
     images: [
-      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/pepper/driedpeper.jpeg',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/pepper/driedpeper.jpeg'
     ],
     status: 'Available',
     vetted: true
