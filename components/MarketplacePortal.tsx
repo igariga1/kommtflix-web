@@ -29,12 +29,14 @@ const MarketplacePortal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [isRequestFormOpen, setIsRequestFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     location: '',
     company: '',
     quantity: '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -52,15 +54,65 @@ const MarketplacePortal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     fetchProducts();
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setIsRequestFormOpen(false);
-      setSelectedProduct(null);
-      setFormData({ name: '', phone: '', location: '', company: '', quantity: '', message: '' });
-    }, 3000);
+    if (!selectedProduct) return;
+    
+    setStatus('sending');
+
+    const accessKey = '97a5509f-4e7b-4ad2-abfd-03379585d878'; 
+
+    const payload = {
+      ...formData,
+      access_key: accessKey,
+      subject: `Marketplace Inquiry: ${selectedProduct.name} from ${formData.name}`,
+      from_name: "KommtFlix Marketplace Portal",
+      product_id: selectedProduct.id,
+      product_name: selectedProduct.name,
+      product_category: selectedProduct.category,
+      product_price: `€${selectedProduct.price.toLocaleString()}`
+    };
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setIsSubmitted(true);
+        setFormData({ 
+          name: '', 
+          email: '',
+          phone: '', 
+          location: '', 
+          company: '', 
+          quantity: '', 
+          message: '' 
+        });
+        
+        // Auto close after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setIsRequestFormOpen(false);
+          setSelectedProduct(null);
+          setStatus('idle');
+        }, 5000);
+      } else {
+        console.error("Web3Forms Error:", result);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Submission failed", error);
+      setStatus('error');
+    }
   };
 
   const filteredProducts = products.filter(p => 
@@ -487,13 +539,27 @@ const MarketplacePortal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Request Information</h3>
                       <p className="text-sm text-gray-500 mb-8">Please provide your details and our experts will contact you within 24 hours.</p>
 
-                      {isSubmitted ? (
+                      {status === 'success' ? (
                         <div className="py-12 text-center">
                           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                             <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                           </div>
                           <h4 className="text-xl font-black text-gray-900 mb-2">Request Received!</h4>
-                          <p className="text-sm text-gray-500">Our team is reviewing your inquiry for {selectedProduct.name}.</p>
+                          <p className="text-sm text-gray-500">Our team is reviewing your inquiry for {selectedProduct?.name}. We will contact you within 24 hours.</p>
+                        </div>
+                      ) : status === 'error' ? (
+                        <div className="py-12 text-center">
+                          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <Info className="w-8 h-8 text-red-600" />
+                          </div>
+                          <h4 className="text-xl font-black text-gray-900 mb-2">Submission Failed</h4>
+                          <p className="text-sm text-gray-500 mb-6">We couldn't transmit your request. Please try again.</p>
+                          <button 
+                            onClick={() => setStatus('idle')}
+                            className="text-[10px] font-black text-red-600 uppercase tracking-widest"
+                          >
+                            Retry Inquiry
+                          </button>
                         </div>
                       ) : (
                         <form onSubmit={handleFormSubmit} className="space-y-4">
@@ -502,79 +568,107 @@ const MarketplacePortal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Full Name *</label>
                               <input 
                                 required
+                                disabled={status === 'sending'}
                                 type="text" 
                                 value={formData.name}
                                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20" 
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
                                 placeholder="John Doe"
                               />
                             </div>
                             <div className="space-y-1.5">
-                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone Number *</label>
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Email Address *</label>
                               <input 
                                 required
-                                type="tel" 
-                                value={formData.phone}
-                                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20" 
-                                placeholder="+49 123 456789"
+                                disabled={status === 'sending'}
+                                type="email" 
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
+                                placeholder="john@company.com"
                               />
                             </div>
                           </div>
 
                           <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Location *</label>
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone Number *</label>
                               <input 
                                 required
-                                type="text" 
-                                value={formData.location}
-                                onChange={(e) => setFormData({...formData, location: e.target.value})}
-                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20" 
-                                placeholder="City, Country"
+                                disabled={status === 'sending'}
+                                type="tel" 
+                                value={formData.phone}
+                                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
+                                placeholder="+49 123 456789"
                               />
                             </div>
                             <div className="space-y-1.5">
-                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Company Name</label>
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Location *</label>
                               <input 
+                                required
+                                disabled={status === 'sending'}
                                 type="text" 
-                                value={formData.company}
-                                onChange={(e) => setFormData({...formData, company: e.target.value})}
-                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20" 
-                                placeholder="Your Business Ltd"
+                                value={formData.location}
+                                onChange={(e) => setFormData({...formData, location: e.target.value})}
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
+                                placeholder="City, Country"
                               />
                             </div>
                           </div>
 
-                          <div className="space-y-1.5">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Quantity / Volume *</label>
-                            <input 
-                              required
-                              type="text" 
-                              value={formData.quantity}
-                              onChange={(e) => setFormData({...formData, quantity: e.target.value})}
-                              className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20" 
-                              placeholder="e.g. 2 Units or 5 Tons"
-                            />
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Company Name</label>
+                              <input 
+                                disabled={status === 'sending'}
+                                type="text" 
+                                value={formData.company}
+                                onChange={(e) => setFormData({...formData, company: e.target.value})}
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
+                                placeholder="Your Business Ltd"
+                              />
+                            </div>
+                            <div className="space-y-1.5">
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Quantity / Volume *</label>
+                              <input 
+                                required
+                                disabled={status === 'sending'}
+                                type="text" 
+                                value={formData.quantity}
+                                onChange={(e) => setFormData({...formData, quantity: e.target.value})}
+                                className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 disabled:opacity-50" 
+                                placeholder="e.g. 2 Units"
+                              />
+                            </div>
                           </div>
 
                           <div className="space-y-1.5">
                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Message *</label>
                             <textarea 
                               required
+                              disabled={status === 'sending'}
                               rows={3}
                               value={formData.message}
                               onChange={(e) => setFormData({...formData, message: e.target.value})}
-                              className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 resize-none" 
+                              className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 resize-none disabled:opacity-50" 
                               placeholder="Tell us about your requirements..."
                             />
                           </div>
 
                           <button 
                             type="submit"
-                            className="w-full bg-red-600 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-900/20"
+                            disabled={status === 'sending'}
+                            className="w-full bg-red-600 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-900/20 flex items-center justify-center space-x-3 disabled:opacity-70 disabled:cursor-not-allowed"
                           >
-                            Submit Inquiry
+                            {status === 'sending' ? (
+                              <>
+                                <Loader2 className="w-5 h-5 animate-spin" />
+                                <span>TRANSMITTING...</span>
+                              </>
+                            ) : (
+                              <span>Submit Inquiry</span>
+                            )}
                           </button>
                         </form>
                       )}
