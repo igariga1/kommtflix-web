@@ -151,14 +151,15 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '11',
-    name: 'Brown Honey Beans (Oloyin)',
+    name: 'Organic Oat Flour',
     category: 'Agro-Exports',
     price: 950,
     location: 'Lagos, Nigeria',
     origin: 'Nigeria',
     specs: ['Sorted & Cleaned', 'Pest Free', 'High Protein', '20ft Container Ready'],
     images: [
-      'https://picsum.photos/seed/beans/800/600',
+      'images/Oats/oat1.jpeg',
+      'https://github.com/igariga1/kommtflix-web/blob/ae50e7bc960bc5cfb8016613b4d4e1abf256c82b/images/Oats/oat1.jpeg',
       'https://picsum.photos/seed/beans_bag/800/600',
       'https://picsum.photos/seed/beans_close/800/600',
       'https://picsum.photos/seed/beans_label/800/600'
