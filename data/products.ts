@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
     id: '7',
     name: 'Ogranic Dried Pepper',
     category: 'Agro-Exports',
-    price: 11.49,
+    price: 00,
     location: 'Enugu, NG',
     origin: 'Nigeria',
     specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
@@ -103,7 +103,7 @@ export const PRODUCTS: Product[] = [
     ],
     status: 'Available',
     vetted: true
-  }
+  },
   ];
   /*{
     id: '3',
