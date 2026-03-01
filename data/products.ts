@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
     id: '2',
     name: 'Yam Flour (Pando)',
     category: 'Agro-Exports',
-    price: 00,
+    price: 4.29,
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     id: '3',
     name: 'Plantain Flour',
     category: 'Agro-Exports',
-    price: 00,
+    price: 4.55,
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
@@ -51,7 +51,7 @@ export const PRODUCTS: Product[] = [
     id: '4',
     name: 'Wheat Flour',
     category: 'Agro-Exports',
-    price: 00,
+    price: 3.99,
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
     id: '5',
     name: 'Abacha',
     category: 'Agro-Exports',
-    price: 00,
+    price: 3.75,
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'hygenically processed', 'Pest Free', 'Export Ready'],
     images: [
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     id: '6',
     name: 'Cassava Flour',
     category: 'Agro-Exports',
-    price: 00,
+    price: 4.25,
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
     id: '7',
     name: 'Ogranic Dried Pepper',
     category: 'Agro-Exports',
-    price: 00,
+    price: 7.89,
     location: 'Enugu, NG',
     origin: 'Nigeria',
     specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
