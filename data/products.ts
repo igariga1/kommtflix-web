@@ -17,23 +17,95 @@ export const PRODUCTS: Product[] = [
     status: 'Available',
     vetted: true
   },
-  /*{
+  {
     id: '2',
-    name: 'BMW iX5',
-    category: 'Car',
-    price: 125000,
-    location: 'Düsseldorf, DE',
-    specs: ['2021 Model', '1,200 Hours', 'Tier 4 Final', '20t Class'],
+    name: 'Yam Flour (Pando)',
+    category: 'Agro-Exports',
+    price: 00,
+    location: 'Lagos, NG',
+    specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
-      'https://picsum.photos/seed/excavator/800/600',
-      'https://picsum.photos/seed/excavator_side/800/600',
-      'https://picsum.photos/seed/excavator_rear/800/600',
-      'https://picsum.photos/seed/excavator_label/800/600'
+      '',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/pando3.jpeg',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/pando3.png' 
     ],
     status: 'Available',
     vetted: true
   },
-  {
+    {
+    id: '3',
+    name: 'Plantain Flour',
+    category: 'Agro-Exports',
+    price: 00,
+    location: 'Lagos, NG',
+    specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
+    images: [
+      '',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/Plantain2.png',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/plantain1.png' 
+    ],
+    status: 'Available',
+    vetted: true
+  },
+   {
+    id: '4',
+    name: 'Wheat Flour',
+    category: 'Agro-Exports',
+    price: 00,
+    location: 'Lagos, NG',
+    specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
+    images: [
+      '',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/wheatFlour1.png',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/wheat2.png' 
+    ],
+    status: 'Available',
+    vetted: true
+  },
+   {
+    id: '5',
+    name: 'Abacha',
+    category: 'Agro-Exports',
+    price: 00,
+    location: 'Lagos, NG',
+    specs: ['Sustainably planted', 'hygenically processed', 'Pest Free', 'Export Ready'],
+    images: [
+      '',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/abacha.png' 
+    ],
+    status: 'Available',
+    vetted: true
+  },
+   {
+    id: '6',
+    name: 'Cassava Flour',
+    category: 'Agro-Exports',
+    price: 00,
+    location: 'Lagos, NG',
+    specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
+    images: [
+      '',
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/cassavaFlour1.jpeg'
+    ],
+    status: 'Available',
+    vetted: true
+  },
+    {
+    id: '7',
+    name: 'Ogranic Dried Pepper',
+    category: 'Agro-Exports',
+    price: 11.49,
+    location: 'Enugu, NG',
+    origin: 'Nigeria',
+    specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
+    images: [
+      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/pepper/driedpeper.jpeg'
+    ],
+    status: 'Available',
+    vetted: true
+  }
+  ];
+  /*{
     id: '3',
     name: 'Liebherr LTM 1050-3.1',
     category: 'Machinery',
@@ -148,18 +220,3 @@ export const PRODUCTS: Product[] = [
     status: 'Available',
     vetted: true
   },*/
-  {
-    id: '11',
-    name: 'Ogranic Dried Pepper',
-    category: 'Agro-Exports',
-    price: 11.49,
-    location: 'Enugu, NG',
-    origin: 'Nigeria',
-    specs: ['Sustainably planted', 'Pest Free', '100% Organic', '2-4Tons Ready'],
-    images: [
-      'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/pepper/driedpeper.jpeg'
-    ],
-    status: 'Available',
-    vetted: true
-  }
-];
