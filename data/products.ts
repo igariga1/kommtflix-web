@@ -25,7 +25,6 @@ export const PRODUCTS: Product[] = [
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
-      '',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/pando3.jpeg',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/pando3.png' 
     ],
@@ -40,7 +39,6 @@ export const PRODUCTS: Product[] = [
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
-      '',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/Plantain2.png',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/plantain1.png' 
     ],
@@ -55,7 +53,6 @@ export const PRODUCTS: Product[] = [
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
-      '',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/wheatFlour1.png',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/wheat2.png' 
     ],
@@ -70,7 +67,6 @@ export const PRODUCTS: Product[] = [
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'hygenically processed', 'Pest Free', 'Export Ready'],
     images: [
-      '',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/abacha.png' 
     ],
     status: 'Available',
@@ -84,7 +80,6 @@ export const PRODUCTS: Product[] = [
     location: 'Lagos, NG',
     specs: ['Sustainably planted', 'Premium processed', 'Pest Free', 'Export Ready'],
     images: [
-      '',
       'https://raw.githubusercontent.com/igariga1/kommtflix-web/main/images/more/cassavaFlour1.jpeg'
     ],
     status: 'Available',
