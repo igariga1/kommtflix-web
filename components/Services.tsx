@@ -13,7 +13,7 @@ const services: Service[] = [
   {
     id: 1,
     title: "Strategic Sourcing",
-    description: "Finding reliable manufacturers across Europe and Africa. We vet every supplier to ensure quality, ethical standards, and SME-friendly minimum orders.",
+    description: "Finding reliable partners across Europe and Africa. We vet every supplier to ensure quality, ethical standards, and SME-friendly minimum orders.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -23,7 +23,7 @@ const services: Service[] = [
   {
     id: 2,
     title: "Global Procurement",
-    description: "Managing the entire purchasing lifecycle. From negotiation and contracting to quality inspections and secure payment facilitation.",
+    description: "Managing the entire procuement cycle. From negotiation and contracting to quality inspections and secure payment facilitation.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -32,8 +32,8 @@ const services: Service[] = [
   },
   {
     id: 3,
-    title: "Agile Logistics",
-    description: "End-to-end freight management via air, sea, and land. We handle complex customs clearing and warehousing at both ends of the corridor.",
+    title: "Market Entry",
+    description: "We provide market entry strategies that allow companies to validate African potentials with minimal lead time and maximum cost-efficiency.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -42,8 +42,8 @@ const services: Service[] = [
   },
   {
     id: 4,
-    title: "Risk Management",
-    description: "Protecting your supply chain with cargo insurance, vendor audits, and real-time market insights to navigate economic volatility.",
+    title: "Risk Mitigation",
+    description: "We minimise market entry risks through deep local expertise and proven business experience, enabling you to maximise the opportunities.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
