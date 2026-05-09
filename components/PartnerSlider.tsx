@@ -2,15 +2,15 @@
 import React from 'react';
 
 const partners = [
-  { name: 'Siemens', logo: 'SIEMENS' },
-  { name: 'Maersk', logo: 'MAERSK' },
+  /*{ name: 'Omary', logo: 'Omary' },*/
+  { name: 'MSC', logo: 'MSC' },
   { name: 'DHL', logo: 'DHL GLOBAL' },
-  { name: 'Dangote', logo: 'DANGOTE' },
-  { name: 'Bosch', logo: 'BOSCH' },
-  { name: 'Sunrose logistics', logo: 'Sunrose logistics' },
+  { name: 'Dangote Farm', logo: 'DANGOTE' },
+  /*{ name: 'Bosch', logo: 'BOSCH' },*/
+  { name: 'Sunrose Logistics', logo: 'Sunrose logistics' },
   /*{ name: 'Standard Bank', logo: 'STANDARD BANK' },*/
   { name: 'Hapag-Lloyd', logo: 'HAPAG-LLOYD' },
-  { name: 'Volkswagen', logo: 'VW GROUP' },
+  /*{ name: 'Volkswagen', logo: 'VW GROUP' },*/
   /*{ name: 'Ecobank', logo: 'ECOBANK' } */
   { name: 'Igariga 360', logo: 'Igariga Group'}
 ];
