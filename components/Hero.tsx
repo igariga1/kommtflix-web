@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenQuote, onOpenPortal }) => {
           </div>
           
           <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
-            KommtFlix is the SME gateway for sourcing and procurement between Europe and Africa. Bridging markets with quality service and precision.
+            KommtFlix is your gateway for trading, sourcing and procurement between Europe and Africa. Bridging markets with premium quality product and service.
           </p>
           
           {/* Centered Stats Section */}
@@ -54,7 +54,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenQuote, onOpenPortal }) => {
             <div className="w-px bg-gray-100 self-center h-12"></div>
             
             <div className="flex-1 text-center px-4 relative">
-              <p className="text-4xl font-black text-gray-900 tracking-tight">08h</p>
+              <p className="text-4xl font-black text-gray-900 tracking-tight">24h</p>
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-2">Response Time</p>
             </div>
             
