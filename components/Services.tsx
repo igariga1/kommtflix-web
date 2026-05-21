@@ -12,41 +12,41 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Strategic Sourcing",
-    description: "Finding reliable partners across Europe and Africa. We vet every supplier to ensure quality, ethical standards, and SME-friendly minimum orders.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    )
-  },
-  {
-    id: 2,
-    title: "Global Procurement",
-    description: "Managing the entire procuement cycle. From negotiation and contracting to quality inspections and secure payment facilitation.",
-    icon: (
+    title: "African Food Wholesale",
+    description: "We source and deliver authentic African food products straight to your store, helping you offer an exceptional experience to every customer.",
+     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     )
   },
   {
-    id: 3,
-    title: "Market Entry",
-    description: "We provide market entry strategies that allow companies to validate African potentials with minimal lead time and maximum cost-efficiency.",
+    id: 2,
+     title: "Strategic Sourcing",
+    description: "Finding reliable partners across continents. We vet every supplier to ensure quality, ethical standards, and SME-friendly minimum orders.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    )
+  },
+  {
+    id: 3,
+    title: "Global Procurement",
+    description: "We manage the entire procuement cycle for you. From negotiation and contracting to quality inspections and secure payment facilitation.",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     )
   },
   {
     id: 4,
-    title: "Premium African Foods",
-    description: "We bring to your store the best quality native African foods, enabling you to focus on your business and in maximising your customers experience.",
+    title: "Market Entry",
+    description: "We provide Go-To-Market strategies that allow companies to validate African market potentials with optimal lead time and cost efficient.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     )
   }
