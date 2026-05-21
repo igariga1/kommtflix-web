@@ -42,7 +42,7 @@ const services: Service[] = [
   },
   {
     id: 4,
-    title: "Market Entry",
+    title: "Market Entry Service",
     description: "We provide Go-To-Market strategies that allow companies to validate African market potentials with optimal lead time and cost efficient.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
