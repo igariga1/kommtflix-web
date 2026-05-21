@@ -49,7 +49,7 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Represented by</p>
-                <p className="text-sm font-medium text-gray-700 leading-relaxed">Managing Director: Ejike Ayogu</p>
+                <p className="text-sm font-medium text-gray-700 leading-relaxed">Managing Director: E. A.</p>
               </div>
               <div>
                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact</p>
